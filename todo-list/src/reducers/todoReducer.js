@@ -23,6 +23,10 @@ export const reducer = (state, action) => {
             const newState = state.map(item => item.id.toString() === action.payload.toString() ? {...item, completed:!item.completed} : item)
             return [...newState]
 
+        case "CLEAR_COMPLETED":
+            const clearState = state.filter(item => !item.completed)
+            return [...clearState]
+
         default:
             return state;
     }

@@ -20,6 +20,10 @@ const TodoList = () => {
     console.log("Firing dispatch to toggle completed")
   }
 
+  const clearCompleted = e => {
+      dispatch({type: "CLEAR_COMPLETED"})
+  }
+
   return (
     <div className="todo-list">
       <form onSubmit={handleSubmit}>
@@ -37,6 +41,7 @@ const TodoList = () => {
             <TodoItem item={item.item} id={item.id} completed={item.completed} toggleComplete={toggleComplete} /> 
           )}
       </div>
+        <button onClick={clearCompleted}>Clear Completed</button> 
     </div>
   );
 };
